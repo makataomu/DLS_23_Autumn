@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Инструкции{% endblock %}
+
+{% block content %}
+{% set instructions_text = "Добро пожаловать!
+Здесь вы можете загрузить состав продукта и увидеть, содержит ли он какие-либо вредные ингредиенты. 
+Пройдите далее" %}
+
+
+<div class="row justify-content-center align-items-center" style="height: 80vh;">
+    <div class="col-6">
+      <div class="card bg-warning">
+        <div class="card-body">
+          <h1 class="card-title text-center">Инструкци</h1>
+          <p class="card-text">{{ instructions_text }}</p>
+          <div class="text-end mt-4">
+            <a href="{{ url_for('upload') }}" class="btn btn-primary">Далее</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endblock %}

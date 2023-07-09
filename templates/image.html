@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %}Upload File{% endblock %}
+
+{% block content %}
+<div class="container" style="height: 80vh;">
+  <div class="row">
+    <div class="col-6 mx_auto mt-5 text-center">
+        <h1 class="mb-5">Scan the Ingredients</h1>
+
+        <form method="post" enctype="multipart/form-data">
+            {{ form.hidden_tag() }}
+
+            {% for error in form.photo.errors %}
+                <span style="color: red;"> {{error}} </span>
+            {% endfor %}
+
+            <div class="row justify-content-center">
+                <div class="col-auto">
+                    {{ form.photo(class='form-control') }}
+                </div>
+                <div class="col-auto">
+                    {{ form.submit(class="btn btn-success") }}
+                </div>
+            </div>
+        </form>
+        
+        {% if file_url %}
+            <div class="mt-5">
+                <img src="{{ file_url }}" style="width: 400px;">
+            </div>
+            <div class="text-end mt-4">
+                <a href="{{ url_for('output') }}" class="btn btn-primary">Next</a>
+            </div>
+        {% endif %}
+
+    </div>
+  </div>
+</div>
+
+<script>
+    document.getElementById('upload-form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the form from submitting normally
+        setTimeout(function() {
+            window.location.href = "{{ url_for('output') }}";
+        }, 2000);
+    });
+</script>
+
+{% endblock %}
