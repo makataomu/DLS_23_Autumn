@@ -166,26 +166,4 @@ def grand_finale(out, FoodAdditive, Synonym):
     final_output = [x for x in final_output if x is not None]
     return final_output
 
-'''
-def update_e_codes():
-    additives = FoodAdditive.query.all()
-    
-    for additive in additives:
-        old_e_code = additive.e_code
-        new_e_code = old_e_code.replace('Е-', 'E') # eng E-
-        new_e_code = old_e_code.replace('E-', 'E') # rus Е-
-        print(new_e_code)
-        additive.e_code = new_e_code
-
-    db.session.commit()'''
-
-
-word = 'E120'
-word = 'Азорубин'
-word = 'пввпаыпв'
-
-'''
-if __name__ == '__main__':
-    with app.app_context():
-        print(search_word(word))'''
 
